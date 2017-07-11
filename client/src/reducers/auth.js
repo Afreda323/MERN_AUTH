@@ -1,11 +1,11 @@
 import { SIGNUP, LOGIN } from "../actions/types";
-export default function(state = { loggedIn: false }, action) {
+export default function(state = { isLoggedIn: false }, action) {
   switch (action.type) {
     case LOGIN:
     case SIGNUP:
       return {
         ...state,
-        loggedIn: true
+        isLoggedIn: true
       };
     default:
       return state;

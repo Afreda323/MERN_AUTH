@@ -4,8 +4,10 @@ import Header from "./components/Header";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import { MuiThemeProvider } from "material-ui/styles";
-import ProtectedRoute from './components/ProtectedRoute'
-import Protected from './pages/protected'
+import ProtectedRoute from "./components/ProtectedRoute";
+import Protected from "./pages/protected";
+import { connect } from "react-redux";
+// TODO: connect to redux for auth
 class Routes extends Component {
   render() {
     return (
@@ -15,12 +17,20 @@ class Routes extends Component {
             <Header />
             <Route exact path="/" component={Login} />
             <Route path="/signup" component={Signup} />
-            <ProtectedRoute path='/secret' component={Protected} isLoggedIn={false}/>
+            <ProtectedRoute
+              path="/secret"
+              component={Protected}
+              isLoggedIn={this.props.auth.isLoggedIn}
+            />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>
     );
   }
 }
-
-export default Routes;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+export default connect(mapStateToProps)(Routes);
