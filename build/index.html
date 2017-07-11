@@ -1,0 +1,114 @@
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed: SyntaxError: /Users/anthonyfreda/Desktop/auth/.babelrc: Error while parsing JSON - Syntax error at line 1 column 11 of the JSON5 data. Still to read: ": [\n      \"react\",\n   "
+  
+  - json5.js:56 error
+    [auth]/[json5]/lib/json5.js:56:25
+  
+  - json5.js:511 Object.parse
+    [auth]/[json5]/lib/json5.js:511:13
+  
+  - build-config-chain.js:150 ConfigChainBuilder.addConfig
+    [auth]/[babel-core]/lib/transformation/file/options/build-config-chain.js:150:65
+  
+  - build-config-chain.js:96 ConfigChainBuilder.findConfigs
+    [auth]/[babel-core]/lib/transformation/file/options/build-config-chain.js:96:16
+  
+  - build-config-chain.js:61 buildConfigChain
+    [auth]/[babel-core]/lib/transformation/file/options/build-config-chain.js:61:13
+  
+  - option-manager.js:354 OptionManager.init
+    [auth]/[babel-core]/lib/transformation/file/options/option-manager.js:354:58
+  
+  - index.js:212 File.initOptions
+    [auth]/[babel-core]/lib/transformation/file/index.js:212:65
+  
+  - index.js:135 new File
+    [auth]/[babel-core]/lib/transformation/file/index.js:135:24
+  
+  - pipeline.js:46 Pipeline.transform
+    [auth]/[babel-core]/lib/transformation/pipeline.js:46:16
+  
+  - index.js:49 transpile
+    [auth]/[babel-loader]/lib/index.js:49:20
+  
+  
+  - SyntaxError: /Users/anthonyfreda/Desktop/auth/.babelrc: Error while parsing JSON - Syntax error at line 1 column 11 of the JSON5 data. Still to read: ": [\n    \"react\",\n   "
+  
+  - compiler.js:76 
+    [auth]/[html-webpack-plugin]/lib/compiler.js:76:16
+  
+  - Compiler.js:298 Compiler.<anonymous>
+    [auth]/[webpack]/lib/Compiler.js:298:10
+  
+  - Compiler.js:516 
+    [auth]/[webpack]/lib/Compiler.js:516:13
+  
+  - Tapable.js:138 next
+    [auth]/[tapable]/lib/Tapable.js:138:11
+  
+  - CachePlugin.js:62 Compiler.<anonymous>
+    [auth]/[webpack]/lib/CachePlugin.js:62:5
+  
+  - Tapable.js:142 Compiler.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:142:13
+  
+  - Compiler.js:513 
+    [auth]/[webpack]/lib/Compiler.js:513:10
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:653 self.applyPluginsAsync.err
+    [auth]/[webpack]/lib/Compilation.js:653:19
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:644 self.applyPluginsAsync.err
+    [auth]/[webpack]/lib/Compilation.js:644:11
+  
+  - Tapable.js:138 next
+    [auth]/[tapable]/lib/Tapable.js:138:11
+  
+  - index.js:244 Compilation.<anonymous>
+    [auth]/[uglifyjs-webpack-plugin]/dist/index.js:244:6
+  
+  - Tapable.js:142 Compilation.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:142:13
+  
+  - Compilation.js:639 self.applyPluginsAsync.err
+    [auth]/[webpack]/lib/Compilation.js:639:10
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:635 sealPart2
+    [auth]/[webpack]/lib/Compilation.js:635:9
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [auth]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:578 Compilation.seal
+    [auth]/[webpack]/lib/Compilation.js:578:8
+  
+  - Compiler.js:510 
+    [auth]/[webpack]/lib/Compiler.js:510:16
+  
+  - Tapable.js:225 
+    [auth]/[tapable]/lib/Tapable.js:225:11
+  
+  - Compilation.js:480 _addModuleChain
+    [auth]/[webpack]/lib/Compilation.js:480:11
+  
+  - Compilation.js:451 processModuleDependencies.err
+    [auth]/[webpack]/lib/Compilation.js:451:13
+  
+  - next_tick.js:67 _combinedTickCallback
+    internal/process/next_tick.js:67:7
+  
+  - next_tick.js:98 process._tickCallback
+    internal/process/next_tick.js:98:9
+  
+</pre><script type="text/javascript" src="main.js"></script>
