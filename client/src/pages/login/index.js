@@ -8,6 +8,7 @@ import { validate, renderTextField } from "../../util/form.js";
 import { login } from "../../actions";
 
 class Login extends Component {
+  componentDidMount() {}
   render() {
     const { login, handleSubmit, pristine, submitting } = this.props;
     return (
@@ -44,7 +45,6 @@ class Login extends Component {
 
 export default connect(null, { login })(
   reduxForm({
-    // a unique name for the form
     form: "login",
     validate
   })(Login)

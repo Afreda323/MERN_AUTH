@@ -7,6 +7,7 @@ import { validate, renderTextField } from "../../util/form.js";
 import { connect } from "react-redux";
 import { signup } from "../../actions";
 class Signup extends Component {
+  componentDidMount() {}
   render() {
     return (
       <div className="wrap">
@@ -46,7 +47,6 @@ class Signup extends Component {
 
 export default connect(null, { signup })(
   reduxForm({
-    // a unique name for the form
     form: "signup",
     validate
   })(Signup)
