@@ -1,46 +1,51 @@
 import React, { Component } from "react";
-import TextField from "material-ui/TextField";
+
 import RaisedButton from "material-ui/RaisedButton";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) =>
-  <TextField
-    fullWidth
-    hintText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-  />;
+import { validate, renderTextField } from "../../util/form.js";
+import { login } from "../../actions";
 
 class Login extends Component {
-  handleForm = e => {
-    e.preventDefault();
-  };
   render() {
+    const { login, handleSubmit, pristine, submitting } = this.props;
     return (
       <div className="wrap">
-        <form className="wrap__form">
+        <form className="wrap__form" onSubmit={handleSubmit(login)}>
           <h1 className="wrap__form__header">Login</h1>
-          <Field name="email" component={renderTextField} label="Email" />
-          <Field name="password" component={renderTextField} label="Password" />
+          <div>
+            <Field name="email" component={renderTextField} label="Email" />
+          </div>
+          <div>
+            <Field
+              name="password"
+              component={renderTextField}
+              label="Password"
+            />
+          </div>
+          <div>
+            <RaisedButton
+              disabled={submitting}
+              type="submit"
+              primary
+              label="Log in!"
+            />
+          </div>
+          <br />
           <small className="wrap__form__small">
             Not a member? <Link to="/signup">Sign Up!</Link>
           </small>
-          <br />
-          <div>
-            <RaisedButton primary label="Log in!" />
-          </div>
         </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default connect(null, { login })(
+  reduxForm({
+    // a unique name for the form
+    form: "login",
+    validate
+  })(Login)
+);

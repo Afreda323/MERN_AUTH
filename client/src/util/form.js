@@ -1,3 +1,5 @@
+import React from 'react'
+import TextField from "material-ui/TextField";
 export const validate = values => {
   const errors = {};
   const requiredFields = ["email", "password", "confirm"];
@@ -24,3 +26,17 @@ export const validate = values => {
   }
   return errors;
 };
+
+export const renderTextField = ({
+  input,
+  label,
+  meta: { touched, error },
+  ...custom
+}) =>
+  <TextField
+    fullWidth
+    hintText={label}
+    errorText={touched && error}
+    {...input}
+    {...custom}
+  />;
