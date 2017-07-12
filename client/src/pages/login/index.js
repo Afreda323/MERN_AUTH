@@ -16,13 +16,14 @@ class Login extends Component {
         <form className="wrap__form" onSubmit={handleSubmit(login)}>
           <h1 className="wrap__form__header">Login</h1>
           <div>
-            <Field name="email" component={renderTextField} label="Email" />
+            <Field name="email" component={renderTextField} label="Email" type="email" />
           </div>
           <div>
             <Field
               name="password"
               component={renderTextField}
               label="Password"
+              type="password"
             />
           </div>
           <div>

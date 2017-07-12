@@ -30,10 +30,12 @@ export const validate = values => {
 export const renderTextField = ({
   input,
   label,
+  type,
   meta: { touched, error },
   ...custom
 }) =>
   <TextField
+    type={type}
     fullWidth
     hintText={label}
     errorText={touched && error}

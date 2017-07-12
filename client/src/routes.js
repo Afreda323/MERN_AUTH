@@ -7,7 +7,6 @@ import { MuiThemeProvider } from "material-ui/styles";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Protected from "./pages/protected";
 import { connect } from "react-redux";
-// TODO: connect to redux for auth
 class Routes extends Component {
   render() {
     return (
