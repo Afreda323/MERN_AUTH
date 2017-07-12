@@ -1,4 +1,5 @@
 var path = require("path");
+const webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var LiveReloadPlugin = require("webpack-livereload-plugin");
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, "build")
   },
-  devtool: "eval",
+  devtool: process.env.NODE_ENV === "production" ? "source-map" : "",
   module: {
     rules: [
       {
@@ -27,6 +28,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/index.html"
     }),
-    new LiveReloadPlugin()
+    new LiveReloadPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production")
+    })
   ]
 };

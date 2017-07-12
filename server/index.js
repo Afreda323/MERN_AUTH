@@ -3,26 +3,30 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const config = require("./config");
 const AuthRoute = require("./routes/auth");
 
-const PORT = process.env.production || 3000;
-
 mongoose
-  .connect("mongodb://localhost:27017/auth")
+  .connect(config.mongoURI)
   .then(() => {
     console.log("Mongo connected");
   })
   .catch(() => console.log("Error connecting"));
-  
+
 const app = express();
 
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
+app.use(express.static("build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build/index.html"));
+});
+
 app.use("/api", AuthRoute);
 
-app.listen(PORT, () => {
+app.listen(config.port, () => {
   console.log("====================================");
-  console.log("Up on " + PORT);
+  console.log("Up on " + config.port);
   console.log("====================================");
 });
