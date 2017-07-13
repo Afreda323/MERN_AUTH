@@ -6,11 +6,18 @@ import { Field, reduxForm } from "redux-form";
 import { validate, renderTextField } from "../../util/form.js";
 import { connect } from "react-redux";
 import { signup } from "../../actions";
+
 class Signup extends Component {
-  componentDidMount() {}
+  checkForToken = () => {
+    if (this.props.token) {
+      this.props.history.replace("/secret");
+    }
+  };
+
   render() {
     return (
       <div className="wrap">
+        {this.checkForToken}
         <form
           className="wrap__form"
           onSubmit={this.props.handleSubmit(this.props.signup)}>
@@ -45,7 +52,11 @@ class Signup extends Component {
   }
 }
 
-export default connect(null, { signup })(
+function mapStateToProps(state) {
+  return { token: state.auth.token };
+}
+
+export default connect(mapStateToProps, { signup })(
   reduxForm({
     form: "signup",
     validate

@@ -6,17 +6,28 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { validate, renderTextField } from "../../util/form.js";
 import { login } from "../../actions";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
-  componentDidMount() {}
+  checkForToken = () => {
+    if (this.props.token) {
+      this.props.history.replace("/secret");
+    }
+  };
   render() {
-    const { login, handleSubmit, pristine, submitting } = this.props;
+    const { login, handleSubmit, pristine, submitting, error } = this.props;
     return (
       <div className="wrap">
+        {this.checkForToken()}
         <form className="wrap__form" onSubmit={handleSubmit(login)}>
           <h1 className="wrap__form__header">Login</h1>
           <div>
-            <Field name="email" component={renderTextField} label="Email" type="email" />
+            <Field
+              name="email"
+              component={renderTextField}
+              label="Email"
+              type="email"
+            />
           </div>
           <div>
             <Field
@@ -26,6 +37,12 @@ class Login extends Component {
               type="password"
             />
           </div>
+          <p className="red-text">
+            {error &&
+              <strong>
+                {error}
+              </strong>}
+          </p>
           <div>
             <RaisedButton
               disabled={submitting}
@@ -34,6 +51,7 @@ class Login extends Component {
               label="Log in!"
             />
           </div>
+
           <br />
           <small className="wrap__form__small">
             Not a member? <Link to="/signup">Sign Up!</Link>
@@ -44,7 +62,11 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { login })(
+function mapStateToProps(state) {
+  return { token: state.auth.token };
+}
+
+export default connect(mapStateToProps, { login })(
   reduxForm({
     form: "login",
     validate

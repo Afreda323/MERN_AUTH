@@ -7,19 +7,28 @@ import { MuiThemeProvider } from "material-ui/styles";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Protected from "./pages/protected";
 import { connect } from "react-redux";
+
 class Routes extends Component {
   render() {
     return (
       <MuiThemeProvider>
         <BrowserRouter>
           <div>
-            <Header />
-            <Route exact path="/" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Header token={this.props.auth.token} />
+            <Route
+              exact
+              path="/"
+              component={Login}
+            />
+            <Route
+              path="/signup"
+              component={Signup}
+              token={this.props.auth.token}
+            />
             <ProtectedRoute
               path="/secret"
               component={Protected}
-              isLoggedIn={this.props.auth.isLoggedIn}
+              token={this.props.auth.token}
             />
           </div>
         </BrowserRouter>

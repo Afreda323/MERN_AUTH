@@ -1,11 +1,11 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) =>
+const PrivateRoute = ({ component: Component, token, ...rest }) =>
   <Route
     {...rest}
     render={props =>
-      isLoggedIn ? <Component {...props} /> : <Redirect to="/" />}
+      token ? <Component {...props} /> : <Redirect to="/" />}
   />;
 
 export default PrivateRoute;
