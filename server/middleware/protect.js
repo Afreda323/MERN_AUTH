@@ -4,16 +4,16 @@ const config = require('../config')
 
 function protectRoute(req, res, next) {
   const token = req.body.token || req.headers["jwt"];
+  console.log(req.headers)
   if (token) {
     jwt.verify(token, config.secret, (err, decode) => {
       if (err || !decode) {
-        return res.status(400).send("Invalid token");
+        return res.status(401).send("Invalid token");
       }
       return next();
     });
-    return;
   } else {
-    return res.send("no token");
+    return res.status(401).send("no token");
   }
 }
 

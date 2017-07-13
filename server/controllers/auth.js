@@ -23,7 +23,7 @@ exports.signupUser = (req, res) => {
       if (err) {
         return res.status(400).send("Something went wrong");
       }
-      return res.status(200).json({ user: user });
+      return res.json({ token: genJWT(user) });
     });
   } else {
     return res.status(400).send("Please enter a valid username and password.");

@@ -9,8 +9,9 @@ Router.post("/", loginUser);
 Router.post("/signup", signupUser);
 
 Router.use(protectRoute);
+
 Router.get("/secret", (req, res) => {
-  res.send("you made it");
+  res.json({message: "you made it"});
 });
 
 module.exports = Router;

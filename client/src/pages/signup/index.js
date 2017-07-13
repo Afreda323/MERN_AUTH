@@ -15,21 +15,26 @@ class Signup extends Component {
   };
 
   render() {
+    const { signup, handleSubmit, pristine, submitting, error } = this.props;
     return (
       <div className="wrap">
-        {this.checkForToken}
-        <form
-          className="wrap__form"
-          onSubmit={this.props.handleSubmit(this.props.signup)}>
+        {this.checkForToken()}
+        <form className="wrap__form" onSubmit={handleSubmit(signup)}>
           <h1 className="wrap__form__header">Signup</h1>
           <div>
-            <Field name="email" component={renderTextField} label="Email" />
+            <Field
+              name="email"
+              component={renderTextField}
+              label="Email"
+              type="email"
+            />
           </div>
           <div>
             <Field
               name="password"
               component={renderTextField}
               label="Password"
+              type="password"
             />
           </div>
           <div>
@@ -37,8 +42,15 @@ class Signup extends Component {
               name="confirm"
               component={renderTextField}
               label="Confirm Password"
+              type="password"
             />
           </div>
+          <p className="red-text">
+            {error &&
+              <strong>
+                {error}
+              </strong>}
+          </p>
           <div>
             <RaisedButton type="submit" primary label="Sign Up!" />
           </div>
