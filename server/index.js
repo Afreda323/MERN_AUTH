@@ -20,12 +20,14 @@ app.use(cors())
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
-// app.use(express.static("build"));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build/index.html"));
-// });
-
 app.use("/api", AuthRoute);
+
+app.use(express.static("build"));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
+
 
 app.listen(config.port, () => {
   console.log("====================================");

@@ -17,6 +17,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: "babel-loader"
       }
     ]
@@ -28,7 +29,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/index.html"
     }),
-    new LiveReloadPlugin(),
+    process.env.NODE_ENV === "production" ? void 0 : new LiveReloadPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     })
