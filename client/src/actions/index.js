@@ -1,9 +1,7 @@
 import axios from "axios";
 import { SubmissionError } from "redux-form"; // ES6
 
-import { LOGIN, SIGNUP, LOGIN_FAIL, LOGOUT, GET_DATA } from "./types";
-
-import { API_URL } from "./api_url";
+import { LOGIN, SIGNUP, LOGIN_FAIL, LOGOUT, GET_DATA, API_URL } from "./types";
 
 export const login = ({ email, password }) => dispatch => {
   return axios
