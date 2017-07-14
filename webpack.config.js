@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./client/src/index.js",
   output: {
-    filename: "[name].js",
+    filename: process.env.NODE_ENV === "production" ? "[name].[chunkhash].js" : "[name].js",
     path: path.resolve(__dirname, "build")
   },
   devtool: process.env.NODE_ENV === "production" ? "source-map" : "",
