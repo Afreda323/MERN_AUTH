@@ -1,7 +1,6 @@
 var path = require("path");
 const webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
-var LiveReloadPlugin = require("webpack-livereload-plugin");
 module.exports = {
   entry: "./client/src/index.js",
   output: {
@@ -29,7 +28,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/index.html"
     }),
-    process.env.NODE_ENV === "production" ? void 0 : new LiveReloadPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     })

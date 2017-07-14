@@ -2,7 +2,8 @@ import axios from "axios";
 import { SubmissionError } from "redux-form"; // ES6
 
 import { LOGIN, SIGNUP, LOGIN_FAIL, LOGOUT, GET_DATA } from "./types";
-const API_URL = "https://intelligent-croissant-93086.herokuapp.com/api";
+
+import { API_URL } from "./api_url";
 
 export const login = ({ email, password }) => dispatch => {
   return axios
@@ -29,7 +30,7 @@ export const signup = ({ email, password }) => dispatch => {
       password
     })
     .then(({ data: { token } }) => {
-    console.log(token)
+      console.log(token);
       localStorage.setItem("jwt", token);
       dispatch({
         type: SIGNUP,
