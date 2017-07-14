@@ -6,7 +6,11 @@
   "scripts": {
     "build": "rimraf build & webpack -p",
     "server": " node server/index.js",
-    "start": "webpack-dev-server --open"
+    "start:dev": "webpack-dev-server --open",
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": "6.9.2"
   },
   "author": "Anthony Freda",
   "license": "ISC",
