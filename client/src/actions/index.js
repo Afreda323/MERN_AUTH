@@ -2,7 +2,7 @@ import axios from "axios";
 import { SubmissionError } from "redux-form"; // ES6
 
 import { LOGIN, SIGNUP, LOGIN_FAIL, LOGOUT, GET_DATA } from "./types";
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://intelligent-croissant-93086.herokuapp.com/api";
 
 export const login = ({ email, password }) => dispatch => {
   return axios
