@@ -53,6 +53,11 @@ class Signup extends Component {
         {this.checkForToken()}
         <form className="wrap__form" onSubmit={handleSubmit(signup)}>
           <h1 className="wrap__form__header">Signup</h1>
+          <p>
+            <small className="wrap__form__small">
+              An email will be sent to you
+            </small>
+          </p>
           <div>
             <Field
               name="email"
@@ -88,7 +93,7 @@ class Signup extends Component {
             : <div>
                 <RaisedButton type="submit" primary label="Sign Up!" />
               </div>}
-              {this.renderModal()}
+          {this.renderModal()}
           <br />
           <small className="wrap__form__small">
             Already a member? <Link to="/">Log in!</Link>
