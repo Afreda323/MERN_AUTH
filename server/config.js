@@ -5,5 +5,5 @@ module.exports = {
   emailProvider: 'SendGrid',
   email: process.env.EMAIL || "YOUR GMAIL HERE",
   password: process.env.PW || "YOUR GMAIL PASSWORD HERE",
-  activateURL: "https://intelligent-croissant-93086.herokuapp.com//api/activate/"
+  activateURL: "https://intelligent-croissant-93086.herokuapp.com/api/activate/"
 };
