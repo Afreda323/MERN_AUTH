@@ -27,12 +27,9 @@ export const signup = ({ email, password }) => dispatch => {
       email,
       password
     })
-    .then(({ data: { token } }) => {
-      console.log(token);
-      localStorage.setItem("jwt", token);
+    .then(() => {
       dispatch({
-        type: SIGNUP,
-        payload: token
+        type: SIGNUP
       });
     })
     .catch(e => {
@@ -55,10 +52,24 @@ export const getData = token => dispatch => {
       }
     })
     .then(({ data }) => {
-      console.log(data);
       dispatch({ type: GET_DATA, payload: data });
     })
     .catch(e => {
       dispatch(logout());
     });
+};
+
+export const forgot = ({ email }) => dispatch => {
+  // return axios
+  //   .post(`${API_URL}/forgot`, {
+  //     email
+  //   })
+  //   .then(() => {
+  //     dispatch({
+  //       type: FORGOT
+  //     });
+  //   })
+  //   .catch(e => {
+  //     throw new SubmissionError({ _error: "There was an issue." });
+  //   });
 };

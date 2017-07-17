@@ -3,10 +3,13 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
+
 import { MuiThemeProvider } from "material-ui/styles";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Protected from "./pages/protected";
 import { connect } from "react-redux";
+
+// import Forgot from "./pages/forgot";
 
 class Routes extends Component {
   render() {
@@ -15,11 +18,9 @@ class Routes extends Component {
         <BrowserRouter>
           <div>
             <Header token={this.props.auth.token} />
-            <Route
-              exact
-              path="/"
-              component={Login}
-            />
+            <Route exact path="/" component={Login} />
+            <Route path="/verified" component={Login} />
+            {/*<Route path="/forgot" component={Forgot} />*/}
             <Route
               path="/signup"
               component={Signup}

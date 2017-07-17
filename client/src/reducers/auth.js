@@ -6,10 +6,14 @@ export default function(
 ) {
   switch (action.type) {
     case LOGIN:
-    case SIGNUP:
       return {
         ...state,
         token: action.payload
+      };
+    case SIGNUP:
+      return {
+        ...state,
+        success: true
       };
     case LOGIN_FAIL:
       return state;

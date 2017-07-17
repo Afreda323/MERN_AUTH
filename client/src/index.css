@@ -112,7 +112,7 @@ section {
   align-items: center;
 }
 .wrap__form {
-    box-sizing: border-box;
+  box-sizing: border-box;
   width: 350px;
   height: 350px;
   max-width: 100vw;
@@ -127,10 +127,15 @@ section {
   font-size: 2.5em;
   padding-bottom: 5px;
 }
+.wrap__form__header--small {
+  font-size: 1.7em;
+  padding-bottom: 5px;
+}
 .wrap__form__small {
   font-size: .8em;
   opacity: .5;
+  padding-bottom: 10px;
 }
-.red-text{
-    color: #F44336
+.red-text {
+  color: #f44336;
 }
