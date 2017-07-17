@@ -10,8 +10,8 @@ const URL = config.activateURL;
 
 const sendMail = (email, token) => {
   let transporter = nodemailer.createTransport({
-    service: "Gmail",
-    host: "smtp.gmail.com",
+    service: config.emailProvider,
+    // host: "smtp.gmail.com",
     auth: {
       user: EMAIL,
       pass: PW
